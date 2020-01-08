@@ -1,6 +1,8 @@
 # Image URL to use all building/pushing image targets
 APP_NAME ?= fluentbit
-IMG = $(DOCKER_PUSH_REPOSITORY)$(DOCKER_PUSH_DIRECTORY)/$(APP_NAME):$(DOCKER_TAG)
+FLUENTBIT_VERSION = 1.3.4
+TAG = $(FLUENTBIT_VERSION)-$(DOCKER_TAG)
+IMG = $(DOCKER_PUSH_REPOSITORY)$(DOCKER_PUSH_DIRECTORY)/$(APP_NAME):$(TAG)
 
 # Build the docker image
 .PHONY: docker-build
