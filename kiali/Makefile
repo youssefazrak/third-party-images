@@ -1,12 +1,12 @@
 APP_NAME ?= kiali
-KIALI_VERSION = 1.26.0
+KIALI_VERSION = 1.27.0
 TAG = $(KIALI_VERSION)-$(DOCKER_TAG)
 IMG = $(DOCKER_PUSH_REPOSITORY)$(DOCKER_PUSH_DIRECTORY)/$(APP_NAME):$(TAG)
 
 # Build the docker image
 .PHONY: docker-build
 docker-build:
-	docker build . -t ${IMG}
+	docker build . -t ${IMG} --build-arg KIALI_VERSION=$(KIALI_VERSION)
 
 # Push the docker image
 .PHONY: docker-push
