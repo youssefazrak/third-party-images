@@ -1,6 +1,6 @@
 FROM minio/minio:RELEASE.2020-09-21T22-31-59Z as builder
 
-FROM alpine:3.12
+FROM alpine:3.12.3
 
 LABEL source=git@github.com:kyma-project/kyma.git
 
@@ -15,8 +15,9 @@ COPY --from=builder /usr/bin/minio /usr/bin/minio
 COPY --from=builder /usr/bin/docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
 RUN  \
-     apk add --no-cache ca-certificates 'curl>7.61.0' 'su-exec>=0.2' && \
-     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
+    apk update && apk upgrade \
+    apk add --no-cache ca-certificates curl 'su-exec>=0.2' && \
+    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
 
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
 
