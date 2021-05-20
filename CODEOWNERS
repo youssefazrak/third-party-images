@@ -9,13 +9,13 @@
 * @a-thaler @skhalash @lilitgh @suleymanakbas91 @clebs @rakesh-garimella @tobiscr
 
 # The `docker-registry` repo
-/docker-registry/ @m00g3n @aerfio @pPrecel @dbadura @tgorgol @kfurgol
+/docker-registry/ @m00g3n @pPrecel @dbadura @tgorgol @rJankowski93
 
 # The `minio` repo
-/minio/ @m00g3n @aerfio @pPrecel @dbadura @tgorgol @kfurgol
+/minio/ @m00g3n @pPrecel @dbadura @tgorgol @rJankowski93
 
 # The `minio client` repo
-/minio-mc/ @m00g3n @aerfio @pPrecel @dbadura @tgorgol @kfurgol
+/minio-mc/ @m00g3n @pPrecel @dbadura @tgorgol @rJankowski93
 
 # The `cloudsql-proxy` repo
 /cloudsql-proxy/ @piotrmiskiewicz @ksputo @jasiu001 @crabtree
