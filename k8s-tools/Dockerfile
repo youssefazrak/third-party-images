@@ -1,12 +1,3 @@
-FROM golang:1.16 as builder
-
-RUN go get github.com/sigstore/cosign@v0.5.0
-
-RUN cd /go/pkg/mod/github.com/sigstore/cosign\@v0.5.0 &&\
-    make cosign
-
-
-
 FROM alpine:3.13.5
 
 # Commit details
@@ -23,7 +14,5 @@ RUN apk --no-cache upgrade &&\
     apk --no-cache add openssl coreutils curl bash jq grep inotify-tools &&\
     wget https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl &&\
     chmod +x /usr/local/bin/kubectl
-
-COPY --from=builder /go/pkg/mod/github.com/sigstore/cosign\@v0.5.0/cosign usr/local/bin/cosign
 
 ENTRYPOINT ["/bin/bash"]
